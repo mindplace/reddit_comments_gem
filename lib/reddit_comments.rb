@@ -7,9 +7,9 @@ module RedditComments
   def self.recursive_comment_digging(child, comments=[])
     post = {}
     post["id"] = child["id"]
+    post["parent_id"] = child["parent_id"]
     post["author"] = child["author"]
     post["body"] = child["body"]
-    post["parent_id"] = child["parent_id"]
 
     comments << post
 
