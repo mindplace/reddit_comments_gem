@@ -1,8 +1,8 @@
 # RedditComments
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/reddit_comments`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Use this gem to pull in Reddit comments from a given Reddit page.
+Currently the comments will appear as an array of hashes, where each hash has the comment text, comment user, and id.
+Upcoming: each comment will know its parent comment id.
 
 ## Installation
 
@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Instructions coming soon!
 
 ## Development
 
@@ -32,7 +32,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/mindplace/reddit_comments.
+Bug reports, pull requests, and feature requests are welcome. Please fork this repo, pull down to your local machine from your fork, push up your changes, and make a pull request from your fork to this repo.
 
 ## License
 
