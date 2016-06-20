@@ -51,7 +51,8 @@ RedditComments.retrieve(url)
 ```
 Result:
 
-```[
+```wrap:space
+[
   {"id"=>"d4gvid3",
  "parent_id"=>"t3_4ozup2"
  "author"=>"extremelycynical",
@@ -68,12 +69,6 @@ Result:
    "body"=>"&gt;\nIt is quite undeniable that these sanctions are entirely based on US interests \n&gt;\n\nNot entirely surely? Russia ruled what are now the Ukraine, the Baltic republics, Belarus, Poland right through the 19C as a result of being one of the European great powers and the tendency for the more powerful states to get what they wanted back then. Some of those ethnicities became independent countries after WW1, but got forced into membership of the Warsaw Pact after WW2, so were directly ruled by the USSR or were satellites. There is some doubt about how much Russia respects the principle of national sovereignty. Ideally Russia itself would join the EU so that we could be a happy family of nations, but that doesn't seem likely."}
   ]
 ```
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
