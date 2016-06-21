@@ -4,6 +4,8 @@ require 'open-uri'
 require 'json'
 
 module RedditComments
+  class IncorrectLinkFormat < StandardError; end
+
   def self.recursive_comment_digging(child, comments=[])
     post = {}
     post["id"] = child["id"]
@@ -21,16 +23,7 @@ module RedditComments
     comments
   end
 
-  def self.append_json(link)
-    unless link.match(/\/.json\z/)
-      link = link + "/.json"
-    end
-    link
-  end
-
   def self.parse_post(post)
-    post = self.append_json(post)
-
     uri = URI.parse(post.dup)
     http = Net::HTTP.new(uri.host)
     request = Net::HTTP::Get.new(uri.request_uri)
@@ -47,7 +40,28 @@ module RedditComments
     comments.flatten
   end
 
+  def self.append_json(link)
+    if link.match(/\/.json\z/)
+      return link
+    end
+
+    if link[-1] == "/"
+      link = link + ".json"
+    else
+      link = link + "/.json"
+    end
+    link
+  end
+
+  def self.link_tested(link)
+    unless link.match(/https:\/\/www.reddit.com\/r\/(.*)\/comments\/(.*)\/(.*)\//)
+      raise IncorrectLinkFormat, "Not an acceptable Reddit link, please see documentation."
+    end
+  end
+
   def self.retrieve(link)
+    self.link_tested(link)
+    link = self.append_json(link)
     post = self.parse_post(link)
     self.get_comments(post)
   end
