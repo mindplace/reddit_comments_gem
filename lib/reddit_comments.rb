@@ -6,8 +6,13 @@ require 'json'
 module RedditComments
   class IncorrectLinkFormat < StandardError; end
 
+  def self.retrieve(link)
+    comments = GetComments.new(link)
+    comments.retrieve
+  end
+
   class GetComments
-    attr_accessor :url, :comments, :request
+    attr_accessor :url, :comments, :request, :post
 
     def initialize(url)
       @url = url
@@ -69,10 +74,5 @@ module RedditComments
       parse_post
       get_comments
     end
-  end
-
-  def self.retrieve(link)
-    comments = GetComments.new(link)
-    comments.retrieve
   end
 end
